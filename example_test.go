@@ -34,7 +34,7 @@ func Example() {
 		selenium.Output(os.Stderr),            // Output debug information to STDERR.
 	}
 	selenium.SetDebug(true)
-	service, err := selenium.NewSeleniumService(seleniumPath, port, opts...)
+	service, err := selenium.NewSeleniumService(seleniumPath, port, []string{}, opts...)
 	if err != nil {
 		panic(err) // panic is used only as an example and is not otherwise recommended.
 	}

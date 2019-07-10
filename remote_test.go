@@ -264,7 +264,7 @@ func TestHTMLUnit(t *testing.T) {
 	if err != nil {
 		t.Fatalf("pickUnusedPort() returned error: %v", err)
 	}
-	s, err := NewSeleniumService(*selenium3Path, port, c.serviceOptions...)
+	s, err := NewSeleniumService(*selenium3Path, port, []string{}, c.serviceOptions...)
 	if err != nil {
 		t.Fatalf("Error starting the WebDriver server with binary %q: %v", *selenium3Path, err)
 	}
@@ -308,7 +308,7 @@ func runFirefoxTests(t *testing.T, webDriverPath string, c config) {
 	if c.seleniumVersion.Major == 0 {
 		s, err = NewGeckoDriverService(webDriverPath, port, c.serviceOptions...)
 	} else {
-		s, err = NewSeleniumService(webDriverPath, port, c.serviceOptions...)
+		s, err = NewSeleniumService(webDriverPath, port, []string{}, c.serviceOptions...)
 	}
 	if err != nil {
 		t.Fatalf("Error starting the WebDriver server with binary %q: %v", webDriverPath, err)
